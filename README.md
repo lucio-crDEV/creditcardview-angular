@@ -13,6 +13,7 @@ En primer lugar debes clonar el repositorio en el directorio que estimes conveni
     npm audit
     npm upgradable
 #
-## Finalmente para abrir la aplicacion en tu localhost debes ejecutar el comando (la bandera -o es para que abra automáticamente, no siempre es obligatoria):
+## Finalmente para abrir la aplicacion en tu localhost debes ejecutar el siguiente comando: 
     ng serve -o
+#### (la bandera -o es para que abra automáticamente, no siempre es obligatoria):
 #
