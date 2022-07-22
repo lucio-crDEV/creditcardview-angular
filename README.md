@@ -11,3 +11,6 @@
     npm list
     npm audit
     npm upgradable
+
+## Finalmente para abrir la aplicacion en tu localhost debes ejecutar el comando (la bandera -o es para que abra automáticamente, no siempre es obligatoria):
+    ng serve -o
