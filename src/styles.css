@@ -1,0 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background:#b3d0e7;
+    font-family: 'OCR A Extended', sans-serif;
+}
