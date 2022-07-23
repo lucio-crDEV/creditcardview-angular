@@ -5,6 +5,11 @@ En primer lugar debes clonar el repositorio en el directorio que estimes conveni
 
     git clone https://github.com/lucio-crDEV/Problema-Frontend-DMNT.git
 #
+
+## Dependencias necesarias: 
+    npm i -g @angular/cli
+    npm i -g typescript
+
 #### Una vez cuentes con el proyecto debes intalar las dependencias de nodule package manager (NPM)
     npm i -y
 #
