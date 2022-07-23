@@ -1,4 +1,4 @@
-## Problema-Frontend-DMNT
+# Problema-Frontend-DMNT
 
 ### Step-by-step: 
 En primer lugar debes clonar el repositorio en el directorio que estimes conveniente: (si no haz configurado tu terminal te dejo mi configuración en mis repositorios)
