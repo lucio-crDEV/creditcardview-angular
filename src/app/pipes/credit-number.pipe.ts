@@ -1,13 +1,14 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'creditNumber'
+  name: 'creditNumber',
+  pure: true,
 })
 export class CreditNumberPipe implements PipeTransform {
 
-  transform(numberCC: string): any {
-
-      return numberCC
+  transform(numberCC: string): string {
+  
+    return numberCC
       // Eliminando espacios en blanco
       .replace(/\s/g, '')
       // Elimina las letras

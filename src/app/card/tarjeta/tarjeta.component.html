@@ -1,20 +1,18 @@
 <div class="contenedor">
 
     <!-- Tarjeta Delantera -->
-    <section class="tarjeta" #card (click)=" rotate(card) ">
+    <section class="tarjeta" id="tarjeta" #card (click)=" rotate(card) ">
         <div class="delantera">
             
             <!-- Contenedor para logo segun numero de tarjeta -->
-            <div class="logo-marca" id="logo-marca">
-                <img src="assets/img/logos/visa.png" alt="">
-            </div>
+            <div class="logo-marca" id="logo-marca"></div>
 
             <img src="assets/img/chip-tarjeta.png" class="chip" />
             <div class="datos">
                 <div class="grupo">
                     <p  *ngIf="cardNumber !== '' "
                         class="numero" 
-                        id="numero"> {{ cardNumber | creditNumber }}
+                        id="numero">{{ cardNumber | creditNumber }}
                     </p>
                     <p  *ngIf="cardNumber == '' "
                         class="numero" 
@@ -36,7 +34,7 @@
                     </div>
                     <div class="grupo" id="expiracion">
                         <p class="label">Expiración</p>
-                        <p class="expiracion"><span id="mes">{{ month }}</span> / <span id="year">{{ year }}</span></p>
+                        <p class="expiracion"><span id="mes"> {{ month }}</span>/<span id="year">{{ year }} </span></p>
                     </div>
                 </div>
             </div>
@@ -48,12 +46,10 @@
             <div class="datos">
                 <div class="grupo" id="ccv">
                     <p class="label" id="cvvLabel"> CVV </p>
-                    <p class="ccvP text-end" id="codigo">***</p>
+                    <p class="ccvP text-end" id="codigo"> {{ cvv }} </p>
                 </div>
             </div>
-            <div class="logo-marca back" id="logo-marca">
-                <img src="assets/img/logos/visa.png" alt="creditCard">
-            </div>
+            <div class="logo-marca back" id="logo-marca-trasera"></div>
         </div>
     </section>
 
@@ -65,9 +61,7 @@
         </button>
     </div>
 
-
     <!-- Formulario -->
-
     <form class="formulario-tarjeta" #formulario="ngForm"
           id="formulario-tarjeta">
         <div class="grupo">
@@ -76,10 +70,11 @@
                     id="inputNumero"
                     name="cardNumber"
                     [(ngModel)]="cardNumber"
-                    maxlength="21"
+                    maxlength="16"
+                    minlength="4"
                     pattern="^\d*$"
                     autocomplete="off" 
-                    (keyup)="complete()"
+                    (keyup)="complete( formulario )"
                     required>
         </div>
         <div class="grupo">
@@ -87,8 +82,9 @@
             <input type="text" 
                    id="inputNombre" 
                    name="cardName"
+                   pattern="/!?^[a-zA-Z\d][a-zA-Z]*$/igm"
                    [(ngModel)]="cardName"
-                   maxlength="19" 
+                   maxlength="24"
                    autocomplete="off"
                    required>
         </div>
@@ -100,17 +96,22 @@
                     <div class="grupo-select">
                         <select name="mes" 
                                 id="selectMes"
-                                require>
-                            <option disabled selected>Mes</option>
-                            <option *ngFor="let mes of mesesYear"> {{ mes }} </option>
+                                [(ngModel)]=" month ">
+                            <option selected disabled>
+                                {{  "Month" || month }}
+                            </option>
+                            <option *ngFor="let mes of mesesYear"
+                                    id="mes"> {{ mes }} 
+                            </option>
                         </select>
                         <i class="fas fa-angle-down"></i>
                     </div>
                     <div class="grupo-select">
                         <select name="year" 
-                                id="selectYear" 
+                                id="selectYear"
+                                [(ngModel)]=" year " 
                                 required>
-                            <option disabled selected>Año</option>
+                            <option disabled selected>{{ "Year" || year }}</option>
                             <option *ngFor="let year of years"> {{ year }}</option>
                         </select>
                         <i class="fas fa-angle-down"></i>
@@ -119,7 +120,15 @@
             </div>
             <div class="grupo ccv">
                 <label for="inputCCV">CVV</label>
-                <input type="text" id="inputCCV" maxlength="3" autocomplete="off">
+                <input type="text" 
+                       id="inputCCV"
+                       name="inputCCV"
+                       [(ngModel)]=" cvv "
+                       placeholder=" "
+                       maxlength="3" 
+                       autocomplete="off"
+                       (click)="rellenarCVV()"
+                       required>
             </div>
         </div>
         <div class="d-grid gap-2">
@@ -129,6 +138,5 @@
                     >Enviar</button>
         </div>
     </form>
-
 
 </div>
