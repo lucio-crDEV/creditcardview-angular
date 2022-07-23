@@ -4,7 +4,7 @@
 En primer lugar debes clonar el repositorio en el directorio que estimes conveniente: (si no haz configurado tu terminal te dejo mi configuración en mis repositorios)
 
     git clone https://github.com/lucio-crDEV/Problema-Frontend-DMNT.git
-#
+
 ## Dependencias necesarias: 
     npm i -g @angular/cli
     npm i -g typescript
