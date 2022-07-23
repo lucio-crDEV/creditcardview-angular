@@ -14,6 +14,7 @@ En primer lugar debes clonar el repositorio en el directorio que estimes conveni
     npm i -y
 #
 #### Puedes verificar el estado de las dependencias y versiones con los siguiente comandos:
+    npm -g list
     npm list
     npm audit
     npm upgradable
