@@ -21,4 +21,5 @@ En primer lugar debes clonar el repositorio en el directorio que estimes conveni
 #
 ## Finalmente para abrir la aplicacion en tu localhost debes ejecutar el siguiente comando: 
     ng serve -o
-##### *(la bandera -o es para que abra automáticamente, no siempre es obligatoria):
+#
+##### *(la bandera -o es para que abra automáticamente, no siempre es obligatoria)
