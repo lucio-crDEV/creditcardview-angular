@@ -129,7 +129,7 @@
 .back {    
     display: flex;
     justify-content: end;
-    margin: 0 1rem 1rem 0;
+    margin: 2.5rem 1rem 1rem 0;
 }
 
 .trasera .logo-marca img {
